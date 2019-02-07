@@ -74,5 +74,5 @@ if __name__ == "__main__":
 
     run(
         *[sensor.id for sensor in session.query(Sensor).all()],
-        datetime.datetime.utcnow().today() - datetime.timedelta(days=1)
+        datetime.datetime.utcnow().today() #- datetime.timedelta(days=1)
     )
