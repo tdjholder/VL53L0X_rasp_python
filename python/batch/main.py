@@ -67,6 +67,7 @@ def get_readings_by_date(*ids, cob_date):
             func.date(Measurement.created_date) == cob_date)
         ).order_by(desc(Measurement.created_date)).all()
 
+
 if __name__ == "__main__":
     session = get_session()
 
