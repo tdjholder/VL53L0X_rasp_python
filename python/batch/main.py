@@ -1,6 +1,7 @@
 import csv
 import smtplib
 import io
+
 import os
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
@@ -8,7 +9,7 @@ import datetime
 from email.utils import COMMASPACE
 from email import encoders
 
-from sqlalchemy import and_, cast, Date, desc, func
+from sqlalchemy import and_, desc, func
 
 from models.models import Measurement, Sensor
 from storage.base import get_session
@@ -71,4 +72,7 @@ def get_readings_by_date(*ids, cob_date):
 if __name__ == "__main__":
     session = get_session()
 
-    run(*[sensor.id for sensor in session.query(Sensor).all()], datetime.datetime.utcnow().today())
+    run(
+        *[sensor.id for sensor in session.query(Sensor).all()],
+        datetime.datetime.utcnow().today() - datetime.timedelta(days=1)
+    )
