@@ -1,4 +1,4 @@
-from batch.main import get_readings_by_date, build_csv, run
+from batch_main import get_readings_by_date, build_csv, run
 from test.fixtures import BaseTest
 from run import run as main_run
 import datetime
