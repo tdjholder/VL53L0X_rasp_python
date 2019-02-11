@@ -72,6 +72,6 @@ def get_readings_by_date(*ids, cob_date):
 if __name__ == "__main__":
     session = get_session()
     id1, id2 = [sensor.id for sensor in session.query(Sensor).all()]
-    u = datetime.datetime.utcnow().replace(tzinfo=pytz.utc).date()
+    u = datetime.datetime.utcnow().replace(tzinfo=pytz.utc).date() - datetime.timedelta(days=1)
 
     run(id1, id2, u)
