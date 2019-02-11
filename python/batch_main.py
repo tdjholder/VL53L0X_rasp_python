@@ -31,10 +31,10 @@ def send_email(csv_file, cob_date):
     to_email = os.environ['FLOWRIGHT_TO_EMAIL']
     smtp_server = 'smtp.gmail.com'
     smpt_port = 587
-
+    to_list = to_email.split(',')
     msg = MIMEMultipart()
     msg['From'] = from_email
-    msg['To'] = COMMASPACE.join([to_email])
+    msg['To'] = COMMASPACE.join(to_list)
     msg['Subject'] = subject
 
     part = MIMEBase('application', "octet-stream")
@@ -47,7 +47,7 @@ def send_email(csv_file, cob_date):
     smtpObj.ehlo()
     smtpObj.starttls()
     smtpObj.login(from_email, password)
-    smtpObj.sendmail(from_email, to_email, msg.as_string())
+    smtpObj.sendmail(from_email, to_list, msg.as_string())
     smtpObj.quit()
 
 
