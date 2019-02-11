@@ -26,9 +26,9 @@ def run(idx1, idx2, cob_date):
 def send_email(csv_file, cob_date):
     subject = "Pi readings for date: %s" % cob_date
     filename = "%s-readings.csv" % cob_date
-    from_email = os.environ['FLOWRIGHT-FROM-EMAIL']
-    password = os.environ['FLOWRIGHT-EMAIL-PASSWORD']
-    to_email = os.environ['FLOWRIGHT-TO-EMAIL']
+    from_email = os.environ['FLOWRIGHT_FROM_EMAIL']
+    password = os.environ['FLOWRIGHT_EMAIL_PASSWORD']
+    to_email = os.environ['FLOWRIGHT_TO_EMAIL']
     smtp_server = 'smtp.gmail.com'
     smpt_port = 587
 
